@@ -3,33 +3,37 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_news"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="News" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_facilities"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="Facilities" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_find_ivest"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Find IVE(ST)" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_About_ivest"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="About IVE(ST)" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="About">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_about_app"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="About App" />
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="@string/action_settings" />
         </menu>
     </item>
 
