@@ -68,7 +68,7 @@ public class About_IVEST extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == id+1) {
             return true;
         }
 
@@ -82,23 +82,23 @@ public class About_IVEST extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_news) {
-            Intent intent = new Intent(this, News.class);
+            Intent intent = new Intent(this, News.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
-            finish();
+            finishX();
         } else if (id == R.id.nav_About_ivest) {
-            Intent intent = new Intent(this, About_IVEST.class);
+            Intent intent = new Intent(this, About_IVEST.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
-            finish();
+            finishX();
 
         } else if (id == R.id.nav_find_ivest) {
-            Intent intent = new Intent(this, Find_IVEST.class);
+            Intent intent = new Intent(this, Find_IVEST.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
-            finish();
+            finishX();
 
         } else if (id == R.id.nav_facilities) {
-            Intent intent = new Intent(this, Facilities.class);
+            Intent intent = new Intent(this, Facilities.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
-            finish();
+            finishX();
 
         } else if (id == R.id.nav_settings) {
 
@@ -111,5 +111,13 @@ public class About_IVEST extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void finish(){
+
+    }
+    public void finishX(){
+        overridePendingTransition(0, 0);
+        finish();
     }
 }
