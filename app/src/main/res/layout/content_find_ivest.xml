@@ -10,10 +10,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.lenchan139.locationofivest.MainActivity"
-    tools:showIn="@layout/app_bar_main">
-
-    <TextView
-        android:layout_width="wrap_content"
+    tools:showIn="@layout/app_bar_find_ivest">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World! Here you can find ive(ST)" />
+        android:id="@+id/linearLayout">
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/btnRePosition"
+    android:text="My Location"
+    android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnTargetPosision"
+            android:text="IVE(ST) Location"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout">
+    <include layout="@layout/activity_maps" />
+    </LinearLayout>
 </RelativeLayout>

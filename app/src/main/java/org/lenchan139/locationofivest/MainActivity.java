@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity
             finishX();
 
         } else if (id == R.id.nav_facilities) {
-            Intent intent = new Intent(this, Facilities.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            Intent intent = new Intent(this, MapsActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             finishX();
 
