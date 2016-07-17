@@ -1,6 +1,7 @@
 package org.lenchan139.locationofivest;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        Intent intent = new Intent(this, News.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+        finishX();
     }
 
     @Override
@@ -96,17 +102,21 @@ public class MainActivity extends AppCompatActivity
             finishX();
 
         } else if (id == R.id.nav_facilities) {
-            Intent intent = new Intent(this, MapsActivity.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            Intent intent = new Intent(this, Facilities.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             finishX();
 
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_about_app){
-
-        }
+        } else if (id == R.id.nav_ive_website) {
+            String url = "https://www.ive.edu.hk/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else if (id == R.id.nav_github) {
+            String url = "https://github.com/lenchan139/IVE-ST_Locate";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else{}
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

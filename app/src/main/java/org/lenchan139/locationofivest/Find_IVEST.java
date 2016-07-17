@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -98,8 +99,9 @@ public class Find_IVEST extends AppCompatActivity
                 client.connect();
                 mMap.clear();
                 markerX();
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(curr, 16));
-
+                if(curr != null ) {
+                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(curr, 16));
+                }
 
             }
         });
@@ -175,13 +177,17 @@ public class Find_IVEST extends AppCompatActivity
             startActivity(intent);
             finishX();
 
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_about_app) {
-
-        }
+        }  else if (id == R.id.nav_ive_website) {
+            String url = "https://www.ive.edu.hk/";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else if (id == R.id.nav_github) {
+            String url = "https://github.com/lenchan139/IVE-ST_Locate";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        } else{}
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -207,7 +213,10 @@ public class Find_IVEST extends AppCompatActivity
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            Toast.makeText(Find_IVEST.this, "Error!", Toast.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    0);
+
             return;
 
         }
@@ -258,13 +267,13 @@ public class Find_IVEST extends AppCompatActivity
     }
 
     public void markerX(){
-
-        MarkerOptions markerOpt = new MarkerOptions();
-        markerOpt.position(curr);
-        markerOpt.title("Your location");
-        markerOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-        mMap.addMarker(markerOpt).showInfoWindow();
-
+        if(curr != null ) {
+            MarkerOptions markerOpt = new MarkerOptions();
+            markerOpt.position(curr);
+            markerOpt.title("Your location");
+            markerOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+            mMap.addMarker(markerOpt).showInfoWindow();
+        }
 
         MarkerOptions markerOpt2 = new MarkerOptions();
         markerOpt2.position(targetLocation);
@@ -272,16 +281,17 @@ public class Find_IVEST extends AppCompatActivity
         markerOpt2.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         mMap.addMarker(markerOpt2).showInfoWindow();
 
-        PolylineOptions polylineOpt = new PolylineOptions();
-        polylineOpt.add(curr);
-        polylineOpt.add(targetLocation);
+        if(curr != null) {
+            PolylineOptions polylineOpt = new PolylineOptions();
+            polylineOpt.add(curr);
+            polylineOpt.add(targetLocation);
 
 //線條顏色
-        polylineOpt.color(Color.BLUE);
+            polylineOpt.color(Color.RED);
 //線條寬度
-        polylineOpt.width(10);
-        Polyline polyline = mMap.addPolyline(polylineOpt);
-
+            polylineOpt.width(10);
+            Polyline polyline = mMap.addPolyline(polylineOpt);
+        }
 
     }
 }
