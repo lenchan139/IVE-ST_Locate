@@ -1,5 +1,6 @@
 package org.lenchan139.locationofivest;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,11 +16,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 
 public class Facilities extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 private WebView webView;
+    private ProgressDialog progressDialog;
     private Button btnG,btn1,btn2,btn3,btn4,btn5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,6 @@ private WebView webView;
         setContentView(R.layout.activity_facilities);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         btnG = (Button) findViewById(R.id.btnGF);
         btn1 = (Button) findViewById(R.id.btn1F);
         btn2 = (Button) findViewById(R.id.btn2F);
@@ -43,8 +45,22 @@ private WebView webView;
         webSettings.setDisplayZoomControls(true);
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
-        webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
+        progressDialog = new ProgressDialog(Facilities.this);
+        progressDialog.setMessage("Now loading......");
+        progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageCommitVisible(WebView view, String url) {
+                super.onPageCommitVisible(view, url);
+                progressDialog.dismiss();
+            }
+        });
+
+        webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,36 +71,42 @@ private WebView webView;
         btnG.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
             }
         });
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 webView.loadUrl("file:///android_res/drawable/map_1_f.jpg");
             }
         });
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 webView.loadUrl("file:///android_res/drawable/map_2_f.jpg");
             }
         });
         btn3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 webView.loadUrl("file:///android_res/drawable/map_3_f.jpg");
             }
         });
         btn4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 webView.loadUrl("file:///android_res/drawable/map_4_f.jpg");
             }
         });
         btn5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 webView.loadUrl("file:///android_res/drawable/map_5_f.jpg");
             }
         });
