@@ -13,10 +13,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.Button;
 
 public class Facilities extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+private WebView webView;
+    private Button btnG,btn1,btn2,btn3,btn4,btn5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,22 @@ public class Facilities extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        btnG = (Button) findViewById(R.id.btnGF);
+        btn1 = (Button) findViewById(R.id.btn1F);
+        btn2 = (Button) findViewById(R.id.btn2F);
+        btn3 = (Button) findViewById(R.id.btn3F);
+        btn4 = (Button) findViewById(R.id.btn4F);
+        btn5 = (Button) findViewById(R.id.btn5F);
+        webView = (WebView) findViewById(R.id.viewIvestMaps);
+
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +52,43 @@ public class Facilities extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+        btnG.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
+            }
+        });
+        btn1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("file:///android_res/drawable/map_1_f.jpg");
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("file:///android_res/drawable/map_2_f.jpg");
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("file:///android_res/drawable/map_3_f.jpg");
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("file:///android_res/drawable/map_4_f.jpg");
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                webView.loadUrl("file:///android_res/drawable/map_5_f.jpg");
+            }
+        });
+        fab.setVisibility(View.INVISIBLE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
