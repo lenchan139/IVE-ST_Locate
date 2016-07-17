@@ -37,7 +37,7 @@
         </activity>
         <activity
             android:name=".About_IVEST"
-            android:label="@string/app_name"
+            android:label="About IVE(ST)"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".News"
-            android:label="@string/app_name"
+            android:label="News"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +53,7 @@
         </activity>
         <activity
             android:name=".Facilities"
-            android:label="@string/app_name"
+            android:label="Facilities"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +61,7 @@
         </activity>
         <activity
             android:name=".Find_IVEST"
-            android:label="@string/app_name"
+            android:label="Find IVE(ST)"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
