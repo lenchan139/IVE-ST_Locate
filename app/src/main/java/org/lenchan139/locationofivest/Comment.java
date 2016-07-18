@@ -204,11 +204,11 @@ public class Comment extends AppCompatActivity
                     String name = c.getString(TAG_TIME);
                     String api = c.getString(TAG_CONTENT);
                     String comment = c.getString(TAG_COMMENT);
-                    Toast.makeText(Comment.this, ver + "|" + name +  "|" + api + "|" + comment, Toast.LENGTH_SHORT).show();
+
                     // Adding value HashMap key => value
 
                     HashMap<String, String> map = new HashMap<String, String>();
-                    String pushMsg = ver + "(" + name + ") in " + api +" said that: ";
+                    String pushMsg = ver + " (" + name + ") in " + api +" said that: ";
                     map.put(TAG_TITLE, pushMsg);
                     map.put(TAG_COMMENT, comment);
 
