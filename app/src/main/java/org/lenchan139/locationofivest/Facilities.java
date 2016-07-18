@@ -61,7 +61,7 @@ private WebView webView;
             }
         });
 
-        webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
+        webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_g_f.jpg");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,42 +73,42 @@ private WebView webView;
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("file:///android_res/drawable/map_g_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-g-f.jpg");
             }
         });
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("file:///android_res/drawable/map_1_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-1-f.jpg");
             }
         });
         btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("file:///android_res/drawable/map_2_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_2_f.jpg");
             }
         });
         btn3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("file:///android_res/drawable/map_3_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_3_f.jpg");
             }
         });
         btn4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("file:///android_res/drawable/map_4_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_4_f.jpg");
             }
         });
         btn5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("file:///android_res/drawable/map_5_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_5_f.jpg");
             }
         });
         fab.setVisibility(View.INVISIBLE);
