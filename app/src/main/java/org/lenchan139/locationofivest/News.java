@@ -41,7 +41,7 @@ public class News extends AppCompatActivity
     ArrayList<HashMap<String, String>> oslist = new ArrayList<HashMap<String, String>>();
 
     //URL to get JSON Array
-    private static String url = "https://lenchan139.org/myWorks/ivest_Script/show_all.php";
+    private static String url = "https://lenchan139.org/myWorks/ivest_Script/news/show_all.php";
 
     //JSON Node Names
     private static final String TAG_OS = "TableX";

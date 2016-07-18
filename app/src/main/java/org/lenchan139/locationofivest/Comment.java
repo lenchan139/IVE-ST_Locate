@@ -22,6 +22,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -203,14 +204,12 @@ public class Comment extends AppCompatActivity
                     String name = c.getString(TAG_TIME);
                     String api = c.getString(TAG_CONTENT);
                     String comment = c.getString(TAG_COMMENT);
-
+                    Toast.makeText(Comment.this, ver + "|" + name +  "|" + api + "|" + comment, Toast.LENGTH_SHORT).show();
                     // Adding value HashMap key => value
 
                     HashMap<String, String> map = new HashMap<String, String>();
-
-                    map.put(TAG_TITLE, ver);
-                    map.put(TAG_TIME, name);
-                    map.put(TAG_CONTENT, api);
+                    String pushMsg = ver + "(" + name + ") in " + api +" said that: ";
+                    map.put(TAG_TITLE, pushMsg);
                     map.put(TAG_COMMENT, comment);
 
                     oslist.add(map);
@@ -218,8 +217,8 @@ public class Comment extends AppCompatActivity
 
                     ListAdapter adapter = new SimpleAdapter(Comment.this, oslist,
                             R.layout.list_x,
-                            new String[] { TAG_TITLE, TAG_TIME, TAG_CONTENT, TAG_COMMENT}, new int[] {
-                            R.id.title1,R.id.time1, R.id.content1,R.id.comment1});
+                            new String[] { TAG_TITLE,TAG_COMMENT}, new int[] {
+                            R.id.title1,R.id.comment1});
 
                     list.setAdapter(adapter);
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
