@@ -6,10 +6,15 @@
             android:id="@+id/nav_news"
             android:icon="@drawable/e_news"
             android:title="News" />
+
         <item
             android:id="@+id/nav_facilities"
             android:icon="@drawable/e_factlities"
             android:title="Facilities" />
+        <item
+            android:id="@+id/nav_comments"
+            android:icon="@drawable/e_comments"
+            android:title="Comments" />
         <item
             android:id="@+id/nav_find_ivest"
             android:icon="@drawable/e_find_ive_st"

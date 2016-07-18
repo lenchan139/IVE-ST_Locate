@@ -6,9 +6,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,13 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +30,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class News extends AppCompatActivity
+public class Comment extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ListView list;
     TextView ver;
@@ -41,32 +40,33 @@ public class News extends AppCompatActivity
     ArrayList<HashMap<String, String>> oslist = new ArrayList<HashMap<String, String>>();
 
     //URL to get JSON Array
-    private static String url = "https://lenchan139.org/myWorks/ivest_Script/show_all.php";
+    private static String url = "https://lenchan139.org/myWorks/ivest_Script/comments/showall.php";
 
     //JSON Node Names
-    private static final String TAG_OS = "TableX";
-    private static final String TAG_TITLE = "title";
-    private static final String TAG_TIME = "time";
-    private static final String TAG_CONTENT = "content";
+    private static final String TAG_OS = "comments";
+    private static final String TAG_TITLE = "first_name";
+    private static final String TAG_TIME = "email";
+    private static final String TAG_CONTENT = "dtime";
+    private static final String TAG_COMMENT = "comment";
+
 
     JSONArray android = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+        setContentView(R.layout.activity_comments);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setVisibility(View.INVISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Refreshing......", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
-                list= (ListView) findViewById(R.id.list);
-                new JSONParse().execute();
+              Intent intent = new Intent(Comment.this, SubmitComment.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -129,11 +129,6 @@ public class News extends AppCompatActivity
             startActivity(intent);
             finishX();
 
-        }  else if (id == R.id.nav_comments) {
-            Intent intent = new Intent(this, Comment.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent);
-            finishX();
-
         } else if (id == R.id.nav_find_ivest) {
             Intent intent = new Intent(this, Find_IVEST.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
@@ -141,6 +136,11 @@ public class News extends AppCompatActivity
 
         } else if (id == R.id.nav_facilities) {
             Intent intent = new Intent(this, Facilities.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            finishX();
+
+        } else if (id == R.id.nav_comments) {
+            Intent intent = new Intent(this, Comment.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             finishX();
 
@@ -172,7 +172,7 @@ public class News extends AppCompatActivity
             ver = (TextView)findViewById(R.id.title1);
             name = (TextView)findViewById(R.id.time1);
             api = (TextView)findViewById(R.id.content1);
-            pDialog = new ProgressDialog(News.this);
+            pDialog = new ProgressDialog(Comment.this);
             pDialog.setMessage("Getting Data ...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
@@ -202,6 +202,7 @@ public class News extends AppCompatActivity
                     String ver = c.getString(TAG_TITLE);
                     String name = c.getString(TAG_TIME);
                     String api = c.getString(TAG_CONTENT);
+                    String comment = c.getString(TAG_COMMENT);
 
                     // Adding value HashMap key => value
 
@@ -210,14 +211,15 @@ public class News extends AppCompatActivity
                     map.put(TAG_TITLE, ver);
                     map.put(TAG_TIME, name);
                     map.put(TAG_CONTENT, api);
+                    map.put(TAG_COMMENT, comment);
 
                     oslist.add(map);
                     list=(ListView)findViewById(R.id.list);
 
-                    ListAdapter adapter = new SimpleAdapter(News.this, oslist,
-                            R.layout.list_v,
-                            new String[] { TAG_TITLE, TAG_TIME, TAG_CONTENT}, new int[] {
-                            R.id.title1,R.id.time1, R.id.content1});
+                    ListAdapter adapter = new SimpleAdapter(Comment.this, oslist,
+                            R.layout.list_x,
+                            new String[] { TAG_TITLE, TAG_TIME, TAG_CONTENT, TAG_COMMENT}, new int[] {
+                            R.id.title1,R.id.time1, R.id.content1,R.id.comment1});
 
                     list.setAdapter(adapter);
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {

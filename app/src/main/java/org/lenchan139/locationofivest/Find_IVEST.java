@@ -162,6 +162,11 @@ public class Find_IVEST extends AppCompatActivity
             Intent intent = new Intent(this, News.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
             finishX();
+        }  else if (id == R.id.nav_comments) {
+            Intent intent = new Intent(this, Comment.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            finishX();
+
         } else if (id == R.id.nav_About_ivest) {
             Intent intent = new Intent(this, About_IVEST.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);

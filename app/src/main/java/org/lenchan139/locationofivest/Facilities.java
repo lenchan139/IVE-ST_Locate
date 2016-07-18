@@ -175,6 +175,11 @@ private WebView webView;
             startActivity(intent);
             finishX();
 
+        }  else if (id == R.id.nav_comments) {
+            Intent intent = new Intent(this, Comment.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            finishX();
+
         } else if (id == R.id.nav_facilities) {
             Intent intent = new Intent(this, Facilities.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent);
