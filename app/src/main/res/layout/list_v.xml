@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AAA"
-        android:textSize="28dp"
+        android:textSize="22dp"
         />
 
     <TextView
@@ -18,14 +18,14 @@
         android:layout_height="wrap_content"
         android:text="BBB"
         android:gravity="right"
-        android:textSize="18dp"
+        android:textSize="16dp"
         />
 
     <TextView
         android:id="@+id/content1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:textSize="14dp"
         />
 
 </LinearLayout>

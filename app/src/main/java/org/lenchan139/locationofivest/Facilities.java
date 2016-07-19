@@ -61,7 +61,7 @@ private WebView webView;
             }
         });
 
-        webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_g_f.jpg");
+        webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-g-f.jpg");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,28 +87,28 @@ private WebView webView;
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_2_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-2-f.jpg");
             }
         });
         btn3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_3_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-3-f.jpg");
             }
         });
         btn4.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_4_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-4-f.jpg");
             }
         });
         btn5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 progressDialog.show();
-                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map_5_f.jpg");
+                webView.loadUrl("https://lenchan139.org/myWorks/IvestMaps/map-5-f.jpg");
             }
         });
         fab.setVisibility(View.INVISIBLE);
