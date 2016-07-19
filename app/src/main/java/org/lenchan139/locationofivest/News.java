@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,14 +21,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.Manifest.*;
+import android.widget.ViewSwitcher;
+import android.R.id.*;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,8 +63,11 @@ public class News extends AppCompatActivity
     private static final String TAG_TITLE = "title";
     private static final String TAG_TIME = "time";
     private static final String TAG_CONTENT = "content";
+    private HorizontalScrollView hsv;
 
     JSONArray android = null;
+
+    private static final String CURRENT_POSITION = "current_position";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +75,6 @@ public class News extends AppCompatActivity
         setContentView(R.layout.activity_news);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -101,6 +115,9 @@ public class News extends AppCompatActivity
 
         new JSONParse().execute();
     }
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -255,4 +272,5 @@ public class News extends AppCompatActivity
 
         }
     }
+
 }
