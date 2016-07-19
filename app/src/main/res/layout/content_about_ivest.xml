@@ -38,7 +38,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tel: "/>
+                    android:text="Tel:      "
+                    />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,7 +50,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Call"
-                    android:id="@+id/btnPhoneCall"/>
+                    android:id="@+id/btnPhoneCall"
+                    android:background="@android:color/transparent"/>
 
             </LinearLayout>
 
@@ -72,7 +74,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Send"
-                    android:id="@+id/btnSendMail"/>
+                    android:id="@+id/btnSendMail"
+                    android:background="@android:color/transparent"/>
 
             </LinearLayout>
         </LinearLayout>
